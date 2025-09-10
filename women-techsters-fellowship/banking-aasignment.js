@@ -1,124 +1,152 @@
-//creating 3 accounts
+//creating 4 accounts with type
+let account1 = { name: "Senait", balance: 500, currency: "USD", type: "Savings" };
+let account2 = { name: "Mikiyas", balance: 200, currency: "USD", type: "Checking" };
+let account3 = { name: "Hildana", balance: 1000, currency: "USD", type: "Savings" };
+let account4 = { name: "Feven", balance: 50, currency: "EUR", type: "Checking" }; // foreign currency account
 
-let account1 = { 
-      name: "Senait", 
-      balance: 500, 
-      currency: "USD" 
-  };
+//deposit to two accounts
+console.log("\n--- Deposits ---");
+let deposit1 = 300;
+account1.balance = account1.balance + deposit1;
+console.log(account1.name + " deposited " + deposit1 + ". New balance: " + account1.balance + " " + account1.currency);
 
-let account2 = { 
-      name: "Mikiyas", 
-      balance: 200, 
-      currency: "USD" 
-};
-let account3 = { 
-      name: "Hildana", 
-      balance: 1000, 
-      currency: "USD" 
-};
+let deposit2 = 150;
+account2.balance = account2.balance + deposit2;
+console.log(account2.name + " deposited " + deposit2 + ". New balance: " + account2.balance + " " + account2.currency);
 
-//deposit to account1
-
-let depositAmount = 300;
-account1.balance = account1.balance + depositAmount;
-console.log(account1.name + " deposited " + depositAmount + ". New balance: " + account1.balance);
-
-//withdraw fron account2
-let withdrawAmount = 250;
-if (account2.balance >= withdrawAmount) {
-  account2.balance = account2.balance - withdrawAmount;
-  console.log(account2.name + " withdrew " + withdrawAmount + ". New balance: " + account2.balance);
+//withdrawals from two accounts
+console.log("\n--- Withdrawals ---");
+let withdraw1 = 250;
+if (account2.balance >= withdraw1) {
+  account2.balance = account2.balance - withdraw1;
+  console.log(account2.name + " withdrew " + withdraw1 + ". New balance: " + account2.balance + " " + account2.currency);
 } else {
-  console.log("Insufficient funds for withdrawal");
+  console.log("Withdrawal denied for " + account2.name + ": insufficient funds");
 }
 
-//transfering from account3 to account1
+let withdraw2 = 600;
+if (account4.balance >= withdraw2) {
+  account4.balance = account4.balance - withdraw2;
+  console.log(account4.name + " withdrew " + withdraw2 + ". New balance: " + account4.balance + " " + account4.currency);
+} else {
+  console.log("Withdrawal denied for " + account4.name + ": insufficient funds");
+}
+
+//transferring from account3 (USD) to account1 (USD)
+console.log("\n--- Transfers ---");
 let transferAmount = 400;
-if (account3.balance >= transferAmount) {
-  account3.balance = account3.balance - transferAmount;
-  account1.balance = account1.balance + transferAmount;
-  console.log("Transferred " + transferAmount + " from " + account3.name + " to " + account1.name);
+if (account3.currency === account1.currency) {
+  if (account3.balance >= transferAmount) {
+    account3.balance = account3.balance - transferAmount;
+    account1.balance = account1.balance + transferAmount;
+    console.log("Transferred " + transferAmount + " from " + account3.name + " to " + account1.name);
+  } else {
+    console.log("Transfer failed: insufficient funds");
+  }
 } else {
-  console.log("Transfer failed");
+  console.log("Transfer failed: currency mismatch");
 }
 
-//comparing the balances
-if (account1.balance > account2.balance && account1.balance > account3.balance) {
-  console.log(account1.name + " has the highest balance");
-} else if (account2.balance > account1.balance && account2.balance > account3.balance) {
-  console.log(account2.name + " has the highest balance");
-} else if (account3.balance > account1.balance && account3.balance > account2.balance) {
-  console.log(account3.name + " has the highest balance");
+//attempt transfer from account4 (EUR) to account2 (USD)
+let eurTransfer = 100;
+if (account4.currency === account2.currency) {
+  if (account4.balance >= eurTransfer) {
+    account4.balance = account4.balance - eurTransfer;
+    account2.balance = account2.balance + eurTransfer;
+    console.log("Transferred " + eurTransfer + " from " + account4.name + " to " + account2.name);
+  } else {
+    console.log("Transfer failed: insufficient funds");
+  }
 } else {
-  console.log("Two accounts are equal");
+  console.log("Transfer failed: currency mismatch (" + account4.currency + " → " + account2.currency + ")");
+  //retry with conversion
+  let exchangeRate = 1.1; // 1 EUR = 1.1 USD
+  let convertedAmount = eurTransfer * exchangeRate;
+  if (account4.balance >= eurTransfer) {
+    account4.balance = account4.balance - eurTransfer;
+    account2.balance = account2.balance + convertedAmount;
+    console.log("Converted transfer: " + eurTransfer + " " + account4.currency +
+      " (" + convertedAmount.toFixed(2) + " USD) from " + account4.name + " to " + account2.name);
+  } else {
+    console.log("Converted transfer failed: insufficient funds");
+  }
 }
 
-//checking the account
-if (account1.balance > 0) {
-  console.log(account1.name + "'s account is Active");
-} else if (account1.balance === 0) {
-  console.log(account1.name + "'s account is Empty");
-} else {
-  console.log(account1.name + "'s account is Overdrawn");
+//monthly maintenance for each account separately
+console.log("\n--- Monthly Maintenance ---");
+//account1
+if (account1.type === "Savings") {
+  let interest1 = account1.balance * 0.02;
+  account1.balance = account1.balance + interest1;
+  console.log(account1.name + " (Savings): added interest " + interest1.toFixed(2));
+} else if (account1.type === "Checking") {
+  account1.balance = account1.balance - 50;
+  console.log(account1.name + " (Checking): deducted fee 50");
+}
+//account2
+if (account2.type === "Savings") {
+  let interest2 = account2.balance * 0.02;
+  account2.balance = account2.balance + interest2;
+  console.log(account2.name + " (Savings): added interest " + interest2.toFixed(2));
+} else if (account2.type === "Checking") {
+  account2.balance = account2.balance - 50;
+  console.log(account2.name + " (Checking): deducted fee 50");
+}
+//account3
+if (account3.type === "Savings") {
+  let interest3 = account3.balance * 0.02;
+  account3.balance = account3.balance + interest3;
+  console.log(account3.name + " (Savings): added interest " + interest3.toFixed(2));
+} else if (account3.type === "Checking") {
+  account3.balance = account3.balance - 50;
+  console.log(account3.name + " (Checking): deducted fee 50");
+}
+//account4
+if (account4.type === "Savings") {
+  let interest4 = account4.balance * 0.02;
+  account4.balance = account4.balance + interest4;
+  console.log(account4.name + " (Savings): added interest " + interest4.toFixed(2));
+} else if (account4.type === "Checking") {
+  account4.balance = account4.balance - 50;
+  console.log(account4.name + " (Checking): deducted fee 50");
 }
 
-if (account2.balance > 0) {
-  console.log(account2.name + "'s account is Active");
-} else if (account2.balance === 0) {
-  console.log(account2.name + "'s account is Empty");
-} else {
-  console.log(account2.name + "'s account is Overdrawn");
-}
-
-if (account3.balance > 0) {
-  console.log(account3.name + "'s account is Active");
-} else if (account3.balance === 0) {
-  console.log(account3.name + "'s account is Empty");
-} else {
-  console.log(account3.name + "'s account is Overdrawn");
-}
-
-
-// Adding account4
-let account4 = { name: "Feven", balance: 50, currency: "USD" };
-
-//balances before transfer
-console.log("\nBalances before richest-to-poorest transfer:");
-console.log(account1, account2, account3, account4);
-
-//richest and poorest accounts
+//compare highest and lowest balances
+console.log("\n--- Comparisons ---");
 let richest = account1;
-if (account2.balance > richest.balance) {
-  richest = account2;
-}
-if (account3.balance > richest.balance) {
-  richest = account3;
-}
-if (account4.balance > richest.balance) {
-  richest = account4;
-}
+if (account2.balance > richest.balance) richest = account2;
+if (account3.balance > richest.balance) richest = account3;
+if (account4.balance > richest.balance) richest = account4;
 
 let poorest = account1;
-if (account2.balance < poorest.balance) {
-  poorest = account2;
-}
-if (account3.balance < poorest.balance) {
-  poorest = account3;
-}
-if (account4.balance < poorest.balance) {
-  poorest = account4;
+if (account2.balance < poorest.balance) poorest = account2;
+if (account3.balance < poorest.balance) poorest = account3;
+if (account4.balance < poorest.balance) poorest = account4;
+
+console.log("Highest balance: " + richest.name + " (" + richest.balance.toFixed(2) + " " + richest.currency + ")");
+console.log("Lowest balance: " + poorest.name + " (" + poorest.balance.toFixed(2) + " " + poorest.currency + ")");
+
+//account status check function
+console.log("\n--- Account Status ---");
+function getStatus(balance) {
+  if (balance > 0) return "Active";
+  if (balance === 0) return "Empty";
+  return "Overdrawn";
 }
 
-// transfering money from richest to poorest
-let richTransferAmount = 200;
-if (richest.balance >= richTransferAmount) {
-  richest.balance = richest.balance - richTransferAmount;
-  poorest.balance = poorest.balance + richTransferAmount;
-  console.log("Transferred " + richTransferAmount + " from " + richest.name + " to " + poorest.name);
-} else {
-  console.log("Transfer failed");
-}
+//status for each account individually
+console.log(account1.name + "'s account is " + getStatus(account1.balance));
+console.log(account2.name + "'s account is " + getStatus(account2.balance));
+console.log(account3.name + "'s account is " + getStatus(account3.balance));
+console.log(account4.name + "'s account is " + getStatus(account4.balance));
 
-//balances after transfer
-console.log("\nBalances after richest-to-poorest transfer:");
-console.log(account1, account2, account3, account4);
+//transaction summary
+console.log("\n--- Transaction Summary ---");
+console.log(account1.name + " | Balance: " + account1.balance.toFixed(2) + " " + account1.currency +
+            " | Type: " + account1.type + " | Status: " + getStatus(account1.balance));
+console.log(account2.name + " | Balance: " + account2.balance.toFixed(2) + " " + account2.currency +
+            " | Type: " + account2.type + " | Status: " + getStatus(account2.balance));
+console.log(account3.name + " | Balance: " + account3.balance.toFixed(2) + " " + account3.currency +
+            " | Type: " + account3.type + " | Status: " + getStatus(account3.balance));
+console.log(account4.name + " | Balance: " + account4.balance.toFixed(2) + " " + account4.currency +
+            " | Type: " + account4.type + " | Status: " + getStatus(account4.balance));
