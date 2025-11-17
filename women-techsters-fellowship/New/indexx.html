@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Credit Experience — Mini Project</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="container" role="application" aria-label="Mortgage calculator">
+    <div class="top-bar">
+      <h2>AG BANK</h2>
+      <div class="menu" aria-hidden="true">
+        <div></div><div></div><div></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- LEFT PANEL -->
+      <div class="left">
+        <h1>Get started with Digital Credit Experience</h1>
+        <p class="small">Qualify or apply your mortgage in minutes</p>
+
+        <!-- Purchase Price -->
+        <div class="field">
+          <label>Purchase price</label>
+          <div class="amount">
+            $<span id="purchaseDisplay">250,000</span>
+          </div>
+          <input id="purchaseRange" type="range" min="50000" max="2500000" step="1000" value="250000" />
+          <div class="range-labels">
+            <div>$50,000</div>
+            <div>$2.5 million</div>
+          </div>
+        </div>
+
+        <!-- Down Payment -->
+        <div class="field">
+          <label>Down payment</label>
+          <div class="amount">
+            $<span id="downDisplay">50,000</span>
+          </div>
+          <input id="downRange" type="range" min="0" max="625000" step="1000" value="50000" />
+          <p class="hint">4% or more of purchase price</p>
+        </div>
+
+        <!-- Period & ZIP -->
+        <div class="bottom-row">
+          <div class="period">
+            <label class="label">Period</label><br />
+            <label><input type="radio" name="period" value="5/1" /> 5/1 ARM variable</label><br />
+            <label><input type="radio" name="period" value="15" /> 15 year fixed</label><br />
+            <label><input type="radio" name="period" value="30" checked /> 30 year fixed</label>
+          </div>
+
+          <div class="zip">
+            <label class="label">Zip code</label><br />
+            <input id="zip" type="text" maxlength="10" value="90459" />
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="right">
+        <div class="card" aria-live="polite">
+          <p>Your total payment will be</p>
+          <h2><span style="color: blue; font-size:24px;vertical-align:top;">$</span><span id="monthlyDisplay" style="color: blue;">780</span></h2>
+
+          <div class="stats">
+            <div>
+              <div class="stat-label">Rate</div>
+              <div class="stat-value" id="rateDisplay">5.250%</div>
+            </div>
+            <div>
+              <div class="stat-label">APR</div>
+              <div class="stat-value" id="aprDisplay">4.418%</div>
+            </div>
+            <div>
+              <div class="stat-label">Points</div>
+              <div class="stat-value" id="pointsDisplay">0.325</div>
+            </div>
+          </div>
+
+          <button id="cta">Get started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

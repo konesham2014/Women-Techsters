@@ -1,0 +1,19 @@
+._root {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #f3c682ff;
+}
+._root__aside-bar{
+    width: 200px;
+    height: 90vh;
+    background-color: #b2f2bb;
+}
+._root__footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #a5d8ff;
+}

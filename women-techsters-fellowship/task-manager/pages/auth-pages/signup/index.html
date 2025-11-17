@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TaskManager</title>
+  <link rel="stylesheet" href="../../../assets/css/global.css">
+  <link rel="stylesheet" href="../../../components/buttons/button.css">
+  <link rel="stylesheet" href="../../../components/logo/logo.css">
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <!--shapes-->
+  <div class="bg" aria-hidden="true">
+    <div class="shape circle-outline"></div>
+    <div class="shape purple-blob"></div>
+    <div class="shape blue-blob"></div>
+    <div class="shape yellow-blob"></div>
+    <div class="shape green-triangle">
+      <img src="../../../assets/images/login arrow right.svg" alt="send icon" >
+    </div>
+    <div class="shape purple-triangle">
+      <img src="../../../assets/images/login arrow up.svg" alt="send icon" >
+    </div>
+  </div>
+
+  <!--pages-->
+  <main class="page-wrap">
+    <section id="card" class="card signup-mode signup-active" aria-labelledby="title">
+      <div class="logo" >
+        <img src="../../../assets/images/logo-mark.svg" alt="TaskMaster logo" >
+      </div>
+
+      <h2 id="title">Join TaskMaster</h2>
+      <p id="subtitle">Create an account to boost your productivity</p>
+
+      <div class="tabs" role="tablist" aria-label="Auth Tabs">
+        <button id="tab-login" class="tab" aria-selected="false">Login</button>
+        <button id="tab-signup" class="tab active" aria-selected="true">Sign Up</button>
+        <div id="tab-indicator" class="tab-indicator"></div>
+      </div>
+
+      <form id="form-signup" class="form" autocomplete="off">
+        <label class="label">Full Name*</label>
+        <input id="signup-name" class="input" type="text" placeholder="John Doe" required>
+
+        <label class="label">Email Address*</label>
+        <input id="signup-email" class="input" type="email" placeholder="hello@example.com" required>
+
+        <label class="label">Password*</label>
+        <input id="signup-password" class="input" type="password" placeholder="********" minlength="6" required>
+        <p class="note">Password must be at least 6 characters long</p>
+
+        <div class="row">
+            <button type="button" class="btn help">Help?</button>
+            <button id="create-btn" type="submit" class="btn primary">Create Account</button>
+          </div>
+      </form>
+
+      <p class="footer">By continuing, you agree to our <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a></p>
+      <p class="copyright">© 2024 TaskMaster | Made for University Students</p>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/global.js"></script>
+  <script src="../../../components/button/button.js"></script>
+  <script src="signup.js"></script>
+</body>
+</html>

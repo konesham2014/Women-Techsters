@@ -1,0 +1,360 @@
+/* BEGINNER-FRIENDLY CSS
+   - exact sizes used from your spec
+   - simple selectors
+   - comments for clarity
+*/
+
+:root{
+  --bg:#F8F9FB;
+  --card-bg:#ffffff;
+  --muted:#777777;
+  --accent:#FFCC40;   /* yellow-ish button */
+  --purple-blob:#9B7AFF;
+  --blue-blob:#B3D4FF;
+  --green-triangle:#6DD07A;
+}
+
+/* Page background */
+html,body{
+  height:100%;
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:var(--bg);
+}
+
+/* Background shapes container */
+.bg{
+  position:fixed;
+  inset:0;
+  pointer-events:none; /* don't block clicks */
+  overflow:visible;
+}
+
+/* Common shape styles */
+.shape{
+  position:absolute;
+  transform-origin:center;
+}
+
+/* circle outline top-left (thin blue outline) */
+.circle-outline{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  border:6px solid rgba(163, 212, 255, 0.6);
+  left:24px;
+  top:24px;
+  opacity:0.95;
+  mix-blend-mode:screen;
+}
+
+/* large purple blurry blob (left middle) */
+.purple-blob{
+  width:280px;
+  height:220px;
+  left:-40px;
+  top:150px;
+  background:var(--purple-blob);
+  border-radius:50%;
+  filter:blur(40px);
+  opacity:0.65;
+}
+
+/* small blue blurred circle bottom-left */
+.blue-blob{
+  width:120px;
+  height:120px;
+  left:20px;
+  top:360px;
+  background:var(--blue-blob);
+  border-radius:50%;
+  filter:blur(26px);
+  opacity:0.55;
+}
+
+/* yellow blurred blob top-right */
+.yellow-blob{
+  width:140px;
+  height:140px;
+  right:36px;
+  top:40px;
+  background:#FFE9A8;
+  border-radius:50%;
+  filter:blur(36px);
+  opacity:0.8;
+}
+
+/* green triangle - solid, will have a tiny animation (moves) */
+/* FIXED: right changed from 200px to 20px to correctly position it near the right side */
+.green-triangle{
+  width:0;
+  height:0;
+  right:20px; /* corrected */
+  top:60px;
+  /* create triangle with borders */
+  border-left:60px solid transparent;
+  border-right:60px solid transparent;
+  border-bottom:100px solid var(--green-triangle);
+  transform: rotate(-8deg);
+  opacity:0.95;
+  /* animate slight up/down to show "it moves" */
+  animation: float 4s ease-in-out infinite;
+}
+
+/* purple triangle outline: use the SVG placed in HTML (class .purple-triangle-outline) */
+.purple-triangle-outline{
+  width:120px;
+  height:120px;
+  right:40px;
+  top:170px;
+  opacity:0.9;
+  transform: rotate(6deg);
+  overflow:visible;
+}
+
+/* float animation */
+@keyframes float{
+  0% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-8px) rotate(-8deg); }
+  100% { transform: translateY(0) rotate(-8deg); }
+}
+
+/* Main center page wrapper - centers the card */
+.page-wrap{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  box-sizing:border-box;
+}
+
+/* Card styles.
+   Two modes: .signup-mode and .login-mode. Each has exact dimensions from your spec.
+*/
+.card{
+  background:var(--card-bg);
+  border-radius:16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding:24px;
+  box-sizing:border-box;
+  text-align:center;
+  position:relative;
+  overflow:visible;
+}
+
+/* EXACT SIZES - signup and login */
+.card.signup-mode{
+  width:453px;   /* provided */
+  height:736px;  /* provided */
+}
+
+.card.login-mode{
+  width:449px;   /* provided */
+  height:625px;  /* provided */
+}
+
+/* Logo */
+.logo{
+  margin:0 auto 8px;
+}
+.logo-box{
+  width:82px;
+  height:78px;
+  border-radius:17px;
+  background: linear-gradient(135deg, #5047FF, #3530D2);
+  position:relative;
+  margin:0 auto;
+}
+.logo .check{
+  color:white;
+  font-weight:bold;
+  font-size:34px;
+  position:absolute;
+  left:18px;
+  top:12px;
+}
+.logo .dot{
+  width:12px;
+  height:12px;
+  background:#FFD42D;
+  border-radius:50%;
+  position:absolute;
+  right:8px;
+  top:8px;
+}
+
+/* Titles */
+#title{
+  margin:10px 0 6px;
+  font-size:22px;
+  color:#222;
+}
+#subtitle{
+  margin:0 0 16px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* Tabs container */
+.tabs{
+  position:relative;
+  margin:10px auto;
+  border-radius:10px;
+  background:#EFEFF2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:5px;
+  box-sizing:border-box;
+  width:404px; /* ensure the tab bar is the exact width you specified */
+  height:40px;
+}
+
+/* Two tab buttons */
+.tab{
+  flex:1;
+  background:transparent;
+  border:none;
+  padding:6px 12px;
+  cursor:pointer;
+  font-weight:600;
+  z-index:2; /* above indicator */
+}
+
+/* Active tab text color */
+.tab.active{ color:#222; }
+
+/* inner white indicator (the pill inside tabs)
+   REMOVED the calc(...) default left so we can handle positions via classes.
+   Transition now covers left and right for smooth sliding.
+*/
+.tab-indicator{
+  position:absolute;
+  top:5px;
+  background:white;
+  border-radius:8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+  z-index:1;
+  transition: left 220ms ease, right 220ms ease;
+  width:198px;  /* fixed size of the pill */
+  height:30px;
+  display:flex;
+  /*align-items:center;*/
+  justify-content:center;
+  pointer-events:none;
+}
+
+/* When login active, we move the indicator left; JavaScript toggles .login-active on card */
+.card.login-active .tab-indicator{
+  left:6px; /* align under Login button */
+  right:auto;
+}
+
+/* When signup active, move indicator to the right */
+.card.signup-active .tab-indicator{
+  right:6px; /* align under Sign Up button on the right */
+  left:auto;
+}
+
+/* Forms */
+.form{
+  width:100%;
+  margin-top:16px;
+  padding:0 8px;
+  box-sizing:border-box;
+  text-align:left;
+}
+
+/* Labels and inputs */
+.label{
+  display:block;
+  font-weight:700;
+  margin:6px 0 6px;
+  font-size:14px;
+}
+.input{
+  width:403px;           /* exact width from spec */
+  height:50px;           /* exact height */
+  max-width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #D6D6E0;
+  background:#F4F5F8;
+  box-sizing:border-box;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+/* Note text */
+.note{
+  margin:6px 8px 12px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* Row with buttons (help + primary) */
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:8px;
+}
+
+/* Buttons */
+.btn{
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:15px;
+}
+
+/* Help button style */
+.btn.help{
+  background:#F0F0F6;
+  color:#222;
+}
+
+/* Primary button */
+.btn.primary{
+  background:var(--accent);
+  color:#111;
+}
+
+/* small footer text */
+.footer{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:18px;
+  text-align:center;
+}
+.footer a{ color:#333; text-decoration:underline; }
+
+/* copyright */
+.copyright{
+  margin-top:6px;
+  color:#AAA;
+  font-size:12px;
+  text-align:center;
+}
+
+/* helper: hide element */
+.hidden{ display:none; }
+
+/* RESPONSIVE: scale down on small viewports
+   We keep the exact pixel sizes, but allow the card to shrink slightly on narrow screens.
+*/
+@media (max-width:520px){
+  .card.signup-mode, .card.login-mode{
+    width:90%;
+    height:auto;
+    padding-bottom:28px;
+  }
+  .input{ width:100%; }
+  .tabs{ width:100%; }
+  /* On small screens prefer putting the indicator on the left for readability */
+  .tab-indicator{ left:6px !important; right:auto !important; } 
+  .purple-blob{ left:-90px; top:120px; }
+  .blue-blob{ left:8px; top:420px; }
+}

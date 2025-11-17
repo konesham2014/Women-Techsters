@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TaskMaster — Login</title>
+  <link rel="stylesheet" href="../../../assets/css/global.css">
+  <link rel="stylesheet" href="../../../components/buttons/button.css">
+  <link rel="stylesheet" href="../../../components/logo/logo.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <!--shapes-->
+  <div class="bg" aria-hidden="true">
+    <div class="shape circle-outline"></div>
+    <div class="shape purple-blob"></div>
+    <div class="shape blue-blob"></div>
+    <div class="shape yellow-blob"></div>
+    <div class="shape green-triangle">
+      <img src="../../../assets/images/login arrow right.svg" alt="send icon" >
+    </div>
+    <div class="shape purple-triangle">
+      <img src="../../../assets/images/login arrow up.svg" alt="send icon" >
+    </div>
+
+    <!--pages-->
+  <main class="page-wrap">
+    <section id="card" class="card login-mode login-active" aria-labelledby="title">
+      <div class="logo" >
+        <img src="../../../assets/images/logo-mark.svg" alt="TaskMaster logo" >
+      </div>
+
+      <h2 id="title">Welcome Back!</h2>
+      <p id="subtitle">Enter your details to access your account</p>
+
+      <div class="tabs" role="tablist" aria-label="Auth Tabs">
+        <button id="tab-login" class="tab active" aria-selected="true">Login</button>
+        <button id="tab-signup" class="tab" aria-selected="false">Sign Up</button>
+        <div id="tab-indicator" class="tab-indicator"></div>
+      </div>
+
+      <form id="form-login" class="form" autocomplete="off">
+        <label class="label">Email Address*</label>
+        <input id="login-email" class="input" type="email" placeholder="hello@example.com" required>
+
+        <label class="label">Password*</label>
+        <input id="login-password" class="input" type="password" placeholder="********" required>
+
+        <div class="row">
+          <button type="button" class="btn help" style="width:195px;height:50px;">Help?</button>
+          <button id="next-btn" type="submit" class="btn primary" style="width:199px;height:50px;">Next Step</button>
+        </div>
+      </form>
+
+      <p class="footer">By continuing, you agree to our <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a></p>
+      <p class="copyright">© 2024 TaskMaster | Made for University Students</p>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/global.js"></script>
+  <script src="../../../components/button/button.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
