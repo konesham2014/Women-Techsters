@@ -1,4 +1,6 @@
-// login.js - beginner JS for tabs and login submit
+
+
+
 const card = document.getElementById('card');
 const tabLogin = document.getElementById('tab-login');
 const tabSignup = document.getElementById('tab-signup');
@@ -13,7 +15,7 @@ function setLoginActive(){
 }
 
 function goToSignup(){
-  // clicking Sign Up navigates to the signup page
+  //navigates to signup
   window.location.href = '../signup/index.html';
 }
 

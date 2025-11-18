@@ -1,4 +1,4 @@
-// signup.js - beginner JS to handle tabs and signup submit
+
 
 const card = document.getElementById('card');
 const tabLogin = document.getElementById('tab-login');
@@ -12,11 +12,11 @@ function setSignupActive(){
   tabLogin.classList.remove('active');
   card.classList.add('signup-active');
   card.classList.remove('login-active');
-  // CSS handles indicator via class
+  
 }
 
 function goToLogin(){
-  // user clicked Login tab => navigate to login page
+  // navigates to login
   window.location.href = '../login/index.html';
 }
 
