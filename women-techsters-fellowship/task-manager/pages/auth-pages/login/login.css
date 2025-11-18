@@ -1,37 +1,37 @@
 :root {
-  --accent:#FFCC40;
-  --purple-blob:#9B7AFF;
-  --blue-blob:#B3D4FF;
-  --green-triangle:#6DD07A;
-  --muted:#777777;
+  --accent: #FFCC40;
+  --purple-blob: #9B7AFF;
+  --blue-blob: #B3D4FF;
+  --green-triangle: #6DD07A;
+  --muted: #777777;
 }
  
 .page-wrap { 
     min-height: 100vh; 
-    display:flex; 
-    align-items:center; 
-    justify-content:center; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
     padding: 20px; 
-    box-sizing:border-box; 
+    box-sizing: border-box; 
 }
 
 .card { 
-    background:#fff; 
-    border-radius:16px; 
+    background: #fff; 
+    border-radius: 16px; 
     box-shadow: 0 10px 30px rgba(82, 154, 167, 0.08); 
     padding: 32px; 
-    text-align:center; 
-    position:relative; 
-    overflow:visible; 
+    text-align: center; 
+    position: relative; 
+    overflow: visible; 
 }
 
 .card.login-mode { 
-    width:380px; 
-    height:550px; 
+    width: 380px; 
+    height: 550px; 
 }
 
 #title { 
-    margin:14px 0 6px;
+    margin: 14px 0 6px;
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 30px;
     font-weight: 700;
@@ -39,152 +39,151 @@
 }
 
 #subtitle { 
-    margin:0 0 36px; 
-    color:var(--muted); 
-    font-size:14px; 
+    margin: 0 0 36px; 
+    color: var(--muted); 
+    font-size: 14px; 
 }
  
 .tabs { 
-    position:relative; 
-    margin:30px auto; 
-    border-radius:10px; 
-    background:#EFEFF2; 
-    display:flex; 
-    align-items:center; 
-    justify-content:space-between; 
-    padding:5px; 
-    box-sizing:border-box; 
-    width:380px; 
-    height:35px; 
+    position: relative; 
+    margin: 30px auto; 
+    border-radius: 10px; 
+    background: #EFEFF2; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 5px; 
+    box-sizing: border-box; 
+    width: 380px; 
+    height: 35px; 
 }
 
 .tab { 
     flex:1; 
-    background:transparent; 
-    border:none; 
-    padding:6px 12px; 
-    cursor:pointer;
+    background: transparent; 
+    border: none; 
+    padding: 6px 12px; 
+    cursor: pointer;
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 14px;
     font-weight: 500;
-    color: rgb(30, 41, 59);
-    font-weight:600; 
-    z-index:2; 
+    color: rgb(30, 41, 59); 
+    z-index: 2; 
 }
 
 .tab.active { 
-    color:#222; 
+    color: #222; 
 }
 
 .tab-indicator { 
-    position:absolute; 
-    top:5px; 
-    width:198px; 
-    height:27px; 
-    background:white; 
-    border-radius:8px; 
+    position: absolute; 
+    top: 5px; 
+    width: 198px; 
+    height: 27px; 
+    background: white; 
+    border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(153, 177, 192, 0.06); 
-    z-index:1; 
-    transition:left 220ms ease, right 220ms ease; 
-    pointer-events:none; 
+    z-index: 1; 
+    transition: left 220ms ease, right 220ms ease; 
+    pointer-events: none; 
 }
 
 .card.login-active .tab-indicator { 
-    left:6px; 
-    right:auto;
+    left: 6px; 
+    right: auto;
  }
 
 .card.signup-active .tab-indicator { 
-    right:6px; 
-    left:auto; 
+    right: 6px; 
+    left: auto; 
 }
 
 .form { 
-    width:100%; 
-    margin-top:16px; 
-    padding:0 8px; 
-    box-sizing:border-box; 
-    text-align:left; 
+    width: 100%; 
+    margin-top: 16px; 
+    padding: 0 8px; 
+    box-sizing: border-box; 
+    text-align: left; 
 }
 
 .label { 
-    display:block; 
+    display: block; 
     font-weight: 700; 
-    margin:6px 0 6px; 
-    font-size:12px;
+    margin: 6px 0 6px; 
+    font-size: 12px;
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     color: rgba(95, 103, 116, 1);
 }
 
 .input { 
-    width:403px; 
-    height:45px; 
-    max-width:100%; 
-    padding:10px; 
-    border-radius:15px; 
-    border:1px solid #D6D6E0; 
-    background:#ffffff; 
-    box-sizing:border-box; 
-    font-size:14px; 
-    margin-bottom:10px; 
+    width: 403px; 
+    height: 45px; 
+    max-width: 100%; 
+    padding: 10px; 
+    border-radius: 15px; 
+    border: 1px solid #D6D6E0; 
+    background: #ffffff; 
+    box-sizing: border-box; 
+    font-size: 14px; 
+    margin-bottom: 10px; 
 }
 
 input:focus {
-    border:3.5px solid hsla(184, 77%, 47%, 0.81);
+    border: 3.5px solid hsla(184, 77%, 47%, 0.81);
     outline: 0.5px solid rgba(16, 6, 148, 0.91);
 }
 
 .row { 
-    display:flex; 
-    justify-content:space-between; 
-    gap:12px; 
-    margin-top:12px; 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 12px; 
+    margin-top: 12px; 
 }
 
 .bg .circle-outline { 
-    width:50px; 
-    height:50px; 
-    border-radius:50%; 
-    border:2px solid rgba(180, 202, 221, 0.6); 
-    left:74px; 
-    top:120px; 
-    position:absolute;
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    border: 2px solid rgba(180, 202, 221, 0.6); 
+    left: 74px; 
+    top: 120px; 
+    position: absolute;
     animation: float 1s ease-in-out infinite;
 }
 
 .bg .purple-blob { 
-    width:280px; 
-    height:220px; 
-    left:-40px; 
-    top:140px; 
-    background:var(--purple-blob); 
-    border-radius:50%; filter:blur(40px); 
-    position:absolute; 
-    opacity:0.65; 
+    width: 280px; 
+    height: 220px; 
+    left: -40px; 
+    top: 140px; 
+    background: var(--purple-blob); 
+    border-radius: 50%; filter:blur(40px); 
+    position: absolute; 
+    opacity: 0.65; 
 }
 
 .bg .blue-blob { 
-    width:120px; 
-    height:120px; 
-    left:20px; 
-    top:360px; 
-    background:var(--blue-blob); 
-    border-radius:50%; 
-    filter:blur(26px); 
-    position:absolute; 
-    opacity:0.55; 
+    width: 120px; 
+    height: 120px; 
+    left: 20px; 
+    top: 360px; 
+    background: var(--blue-blob); 
+    border-radius: 50%; 
+    filter: blur(26px); 
+    position: absolute; 
+    opacity: 0.55; 
 }
 
 .bg .yellow-blob { 
-    width:140px; 
-    height:140px; 
-    right:36px; 
-    top:40px; 
-    background:#FFE9A8; 
-    border-radius:50%; 
-    filter:blur(36px); 
-    position:absolute; 
-    opacity:0.8; 
+    width: 140px; 
+    height: 140px; 
+    right: 36px; 
+    top: 40px; 
+    background: #FFE9A8; 
+    border-radius: 50%; 
+    filter: blur(36px); 
+    position: absolute; 
+    opacity: 0.8; 
 }
 
 .bg .green-triangle {
@@ -219,8 +218,8 @@ input:focus {
     font-size: 12px;
     font-weight: 450;
     color: rgb(30, 41, 59); 
-    margin-top:30px; 
-    text-align:center; 
+    margin-top: 30px; 
+    text-align: center; 
 }
 
 .copyright {
@@ -228,8 +227,8 @@ input:focus {
     font-size: 13px;
     font-weight: 400;
     color: rgb(30, 41, 59);
-    color:var(--muted); 
-    margin-top:0px; 
-    text-align:center; 
+    color: var(--muted); 
+    margin-top: 0px; 
+    text-align: center; 
 }
 

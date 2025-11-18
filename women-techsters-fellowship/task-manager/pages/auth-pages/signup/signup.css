@@ -1,4 +1,4 @@
-:root{
+:root {
   --accent:#FFCC40;
   --purple-blob:#9B7AFF;
   --blue-blob:#B3D4FF;
@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -31,7 +31,7 @@
 }
 
 #title {
-  margin: 10px 0 6px;
+  margin: 14px 0 6px;
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 30px;
   font-weight: 700;
@@ -79,7 +79,7 @@
 .tab-indicator {
   position: absolute;
   top: 5px;
-  width: 200px;
+  width: 198px;
   height: 27px;
   background: white;
   border-radius: 8px;
@@ -136,6 +136,12 @@
   color: var(--muted);
 }
 
+
+input:focus {
+    border:3.5px solid hsla(184, 77%, 47%, 0.81);
+    outline: 0.5px solid rgba(16, 6, 148, 0.91);
+}
+
 .row {
   display: flex;
   justify-content: space-between;
@@ -145,20 +151,20 @@
 
 
 .bg .circle-outline { 
-    width:50px; 
-    height:50px; 
-    border-radius:50%; 
-    border:2px solid rgba(180, 202, 221, 0.6); 
-    left:24px; 
-    top:160px; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    border: 2px solid rgba(180, 202, 221, 0.6); 
+    left: 74px; 
+    top: 120px; 
     animation: float 1s ease-in-out infinite; 
 }
 
 .bg .purple-blob {
-  width: 200px;
+  width: 280px;
   height: 220px;
   left: -40px;
-  top: 150px;
+  top: 140px;
   background: var(--purple-blob);
   border-radius: 50%;
   filter: blur(40px);
@@ -211,15 +217,9 @@
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(0) rotate(-8deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(-8deg);
-  }
-  100% {
-    transform: translateY(0) rotate(-8deg);
-  }
+  0% {transform: translateY(0) rotate(-8deg);}
+  50% {transform: translateY(-8px) rotate(-8deg);}
+  100% {transform: translateY(0) rotate(-8deg);}
 }
 
 .footer {
@@ -236,8 +236,8 @@
     font-size: 13px;
     font-weight: 400;
     color: rgb(30, 41, 59);
-    color:var(--muted); 
-    margin-top:0px; 
-    text-align:center; 
+    color: var(--muted); 
+    margin-top: 0px; 
+    text-align: center; 
 }
 
