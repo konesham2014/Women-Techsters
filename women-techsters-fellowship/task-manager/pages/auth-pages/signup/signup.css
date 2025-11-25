@@ -203,7 +203,7 @@ input:focus {
   top: 130px;
   position: absolute;
   transform: rotate(-8deg);
-  animation: float 1s ease-in-out infinite;
+  animation: float 0.9s ease-in-out infinite;
 }
 
 .bg .purple-triangle {

@@ -1,0 +1,88 @@
+.sidebar {
+  width: 245px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 100px;
+  background: #dbeafe;
+  color: #1e3a8a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.info h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.info p {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Menu */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #374151;
+}
+
+.menu li svg {
+  color: #6b7280;
+}
+
+.menu li:hover {
+  background: #f3f4f6;
+}
+
+.menu li.active {
+  background: #e0e7ff;
+  color: #4338ca;
+  font-weight: 600;
+}
+
+.logout {
+  margin-top: auto;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  background: white;
+  color: red;
+}
+.logout:hover {
+  background: #dc2626;
+}
