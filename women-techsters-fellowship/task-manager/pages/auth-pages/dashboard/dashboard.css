@@ -26,7 +26,7 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* Dashboard Cards */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -34,10 +34,11 @@ h1 {
 }
 
 .card {
-  background: white;
-  border-radius: 10px;
-  padding: 16px;
-  border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card .icon {
@@ -49,6 +50,12 @@ h1 {
   justify-content: center;
   color: white;
   margin-bottom: 12px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(0px);
 }
 
 .blue { background: #3b82f6; }
@@ -59,7 +66,6 @@ h1 {
 .card h4 { margin: 0; font-size: 14px; color: #6b7280; }
 .card h2 { margin: 6px 0; }
 
-/* Sections */
 .row {
   display: flex;
   gap: 18px;

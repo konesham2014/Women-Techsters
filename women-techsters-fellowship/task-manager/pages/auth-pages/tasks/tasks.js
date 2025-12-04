@@ -1,6 +1,6 @@
 const KEY = 'tm_tasks';
 
-// Elements
+
 const btnMyTasks = document.getElementById('btnMyTasks');
 const btnAi = document.getElementById('btnAi');
 const panelTasks = document.getElementById('panelTasks');
@@ -27,7 +27,7 @@ const aiBox = document.getElementById('aiBox');
 const aiLatest = document.getElementById('aiLatest');
 const aiHistory = document.getElementById('aiHistory');
 
-// Tab toggles
+
 btnMyTasks.addEventListener('click', () => {
   btnMyTasks.classList.add('active'); btnAi.classList.remove('active');
   panelTasks.classList.remove('hidden'); panelAi.classList.add('hidden');
@@ -37,14 +37,14 @@ btnAi.addEventListener('click', () => {
   panelAi.classList.remove('hidden'); panelTasks.classList.add('hidden');
 });
 
-// Modal controls
+
 openAdd.addEventListener('click', () => modal.classList.remove('hidden'));
 cancelTask.addEventListener('click', () => {
   modal.classList.add('hidden');
   clearModal();
 });
 
-// Load / Save tasks
+
 function loadTasks() {
   try { return JSON.parse(localStorage.getItem(KEY)) || []; }
   catch(e){ return []; }
@@ -53,13 +53,13 @@ function saveTasks(list) {
   localStorage.setItem(KEY, JSON.stringify(list));
 }
 
-// Render tasks
+
 function renderAll() {
   const tasks = loadTasks();
   const active = tasks.filter(t => !t.done);
   const completed = tasks.filter(t => t.done);
 
-  // Counts
+  
   activeCountEl.textContent = active.length;
   completedCountEl.textContent = completed.length;
 
@@ -71,7 +71,7 @@ function renderAll() {
     activeList.parentElement.parentElement.classList.remove('hidden');
   }
 
-  // Active tasks
+  
   activeList.innerHTML = '';
   active.forEach(t => {
     const div = document.createElement('div');
@@ -92,7 +92,7 @@ function renderAll() {
     activeList.appendChild(div);
   });
 
-  // Completed tasks
+  
   completedList.innerHTML = '';
   completed.forEach(t => {
     const div = document.createElement('div');
@@ -113,21 +113,21 @@ function renderAll() {
   });
 }
 
-// Escape HTML
+
 function escapeHtml(str){
   if (!str) return '';
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-// Save new task (no alert, just ignore empty input)
+
 saveTask.addEventListener('click', () => {
   const title = taskTitle.value.trim();
   const desc = taskDesc.value.trim();
   const date = taskDate.value;
 
   if (!title) {
-    taskTitle.focus(); // optional: move cursor to title box
-    return; // do nothing if empty
+    taskTitle.focus(); 
+    return;
   }
 
   const tasks = loadTasks();
@@ -146,7 +146,7 @@ saveTask.addEventListener('click', () => {
   renderAll();
 });
 
-// Complete / Delete tasks
+
 document.body.addEventListener('click', e => {
   const tasks = loadTasks();
 
@@ -167,14 +167,14 @@ document.body.addEventListener('click', e => {
   }
 });
 
-// Clear modal inputs
+
 function clearModal(){
   taskTitle.value = '';
   taskDesc.value = '';
   taskDate.value = '';
 }
 
-// AI Summary (simulated)
+
 aiGenerate.addEventListener('click', () => {
   const tasks = loadTasks();
   let text = 'No tasks to summarize.';
@@ -195,6 +195,6 @@ function updateAiCount(){
   aiHistory.textContent = `History (${history.length})`;
 }
 
-// Initial render
+
 renderAll();
 updateAiCount();
