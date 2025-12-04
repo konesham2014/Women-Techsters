@@ -9,6 +9,14 @@
 
 </head>
 <body>
-  <script src="assets/js/global.js"></script>
+  <script src="assets/js/global.js">
+     
+    if (localStorage.getItem('tm_loggedIn') === 'true') {
+      window.location.href = 'pages/dashboard/index.html';
+    } else {
+      window.location.href = 'pages/auth-pages/login/index.html';
+    }
+
+  </script>
 </body>
 </html>

@@ -10,13 +10,25 @@
   font-family: system-ui, sans-serif;
 }
 
-/* Profile */
+
 .profile {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 28px;
 }
+
+.profile .text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.email {
+  font-size: 12px;
+  color: gray;
+}
+
 
 .avatar {
   width: 42px;
@@ -42,7 +54,7 @@
   color: #6b7280;
 }
 
-/* Menu */
+
 .menu {
   list-style: none;
   padding: 0;
@@ -69,12 +81,12 @@
 }
 
 .menu li.active {
-  background: #e0e7ff;
+  background: #eef1fa;
   color: #4338ca;
   font-weight: 600;
 }
 
-.logout {
+.logout-btn {
   margin-top: auto;
   padding: 10px;
   font-size: 15px;
@@ -83,6 +95,7 @@
   background: white;
   color: red;
 }
-.logout:hover {
-  background: #dc2626;
+.logout-btn:hover {
+  background: #fcdede;
+  border-radius: 10px;
 }

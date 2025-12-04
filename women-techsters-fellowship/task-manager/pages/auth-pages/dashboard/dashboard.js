@@ -1,22 +1,14 @@
 
-//redirect to login if not logged in
 if (localStorage.getItem("loggedIn") !== "true") {
     window.location.href = "../login/index.html";
 }
 
-const user = localStorage.getItem("username") || "User";
-const greetingEl = document.getElementById("greeting");
-if (greetingEl) {
-    greetingEl.textContent = "Good morning, " + user + "!";
-}
-
-//fill username
 const profileNameEl = document.getElementById("profile-name");
 if (profileNameEl) {
     profileNameEl.textContent = user;
 }
 
-//logout
+
 const logoutBtn = document.getElementById("logout-btn");
 if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
@@ -25,3 +17,20 @@ if (logoutBtn) {
         window.location.href = "../login/index.html";
     });
 }
+
+
+const greetingEl = document.getElementById('greeting');
+const username = localStorage.getItem('username') || "";
+
+const hour = new Date().getHours();
+let greeting = "";
+
+if(hour < 12){
+  greeting = "Good Morning";
+} else if(hour < 18){
+  greeting = "Good Afternoon";
+} else {
+  greeting = "Good Evening";
+}
+
+greetingEl.textContent = `${greeting}, ${username}!`;

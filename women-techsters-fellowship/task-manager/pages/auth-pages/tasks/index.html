@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Tasks - TaskMaster</title>
+  <link rel="stylesheet" href="tasks.css">
+</head>
+<body>
+
+  
+  <aside class="sidebar-wrap">
+    <iframe src="../../../components/sidebar/sidebar.html" class="sidebar-frame" title="Sidebar"></iframe>
+  </aside>
+
+  <main class="content">
+    
+    <div class="header-card">
+      <div class="logo-square">✔</div>
+      <div>
+        <h2>Task Management</h2>
+        <p class="muted">Manage and track your tasks</p>
+      </div>
+    </div>
+
+  
+    <div class="tabs">
+      <button id="btnMyTasks" class="tab active">My Tasks</button>
+      <button id="btnAi" class="tab">AI Summary</button>
+    </div>
+
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num" id="active-count">0</div>
+        <div class="stat-label">Active tasks</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-num" id="completed-count">0</div>
+        <div class="stat-label">Completed</div>
+      </div>
+    </div>
+
+  
+    <section id="panelTasks" class="panel active">
+      <div class="panel-top">
+        <div class="left-help">Click "Add Task" to create your first task</div>
+        <button id="openAdd" class="btn-add">+ Add Task</button>
+      </div>
+
+      <div id="emptyBox" class="empty-box">
+        <div class="empty-icon">◯</div>
+        <div class="empty-text">No tasks yet<br><span class="muted">Click "Add Task" to create your first task</span></div>
+      </div>
+
+      <div id="lists" class="lists hidden">
+        <div class="list-col">
+          <h3>Active Tasks</h3>
+          <div id="activeList" class="task-list"></div>
+        </div>
+
+        <div class="list-col">
+          <h3>Completed</h3>
+          <div id="completedList" class="task-list"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="panelAi" class="panel hidden">
+      <h3>AI-Powered Task Summary</h3>
+      <p class="muted">Get insights and recommendations for your tasks</p>
+
+      <div class="ai-actions">
+        <button id="aiLatest" class="ai-tab active">Latest Summary</button>
+        <button id="aiHistory" class="ai-tab">History (0)</button>
+        <button id="aiGenerate" class="btn-primary">Generate New</button>
+      </div>
+
+      <div id="aiBox" class="ai-box">
+        <div class="ai-empty">
+          <div class="ai-icon">📊</div>
+          <div>No summary generated yet<br><span class="muted">Click "Generate New" to get AI-powered insights</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+  <div class="modal-inner">
+    <h3 id="modalTitle">Add Task</h3>
+    <input id="taskTitle" placeholder="Task title" />
+    <textarea id="taskDesc" placeholder="Description (optional)"></textarea>
+    <div class="modal-row">
+      <input id="taskDate" type="date" />
+      <div>
+        <button id="saveTask" class="btn-primary">Save</button>
+        <button id="cancelTask" class="btn-muted">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="tasks.js"></script>
+</body>
+</html>

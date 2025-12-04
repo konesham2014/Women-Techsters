@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Community</title>
+    <link rel="stylesheet" href="community.css">
+</head>
+
+<body>
+
+<iframe src="../../../components/sidebar/sidebar.html"
+        style="width:245px;height:100vh;border:none;position:fixed;left:0;top:0;"></iframe>
+
+<div class="main">
+    <h1 class="title">👥 Community Board</h1>
+        <p class="para_graph">Collaborate with your team
+            <style>
+                .para_graph {
+                color: rgb(119, 116, 116);
+                font-size: 13px;
+                }
+            </style>
+        </p>
+
+    <textarea id="post-input" placeholder="Share an update..."></textarea>
+    <button id="post-btn">Post</button>
+
+    <div id="posts"></div>
+</div>
+
+<script src="../../auth-check.js"></script>
+<script src="community.js"></script>
+</body>
+</html>
