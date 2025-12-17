@@ -1,18 +1,19 @@
 .stats {
+  display: flex;
+  justify-content: space-around;
   padding: 60px 10%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  text-align: center;
+  background: #f7f7f7;
 }
 
-.stat-box h3 {
+.stats h3 {
   font-size: 32px;
-  color: #ff9f1c;
+  color: #00beae;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .stats {
-    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
   }
 }

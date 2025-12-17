@@ -1,27 +1,34 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Blog from "./components/Blog";
 import Features from "./components/Features";
-import Stats from "./components/Stats";
-import Teachers from "./components/Teachers";
-import Testimonials from "./components/Testimonials";
+import About from "./components/About";
 import Video from "./components/Video";
+import Stats from "./components/Stats";
 import WhyChoose from "./components/WhyChoose";
+import Testimonials from "./components/Testimonials";
+import Teachers from "./components/Teachers";
+import Blog from "./components/Blog";
+
+
+
+
+
+
+
 
 function App() {
   return (
     <>
       <Header />
       <Hero />
-      <About />
-      <Blog />
       <Features />
-      <Stats />
-      <Teachers />
-      <Testimonials />
+      <About />
       <Video />
+      <Stats />
       <WhyChoose />
+      <Testimonials />
+       <Teachers />
+      <Blog />
     </>
   );
 }
