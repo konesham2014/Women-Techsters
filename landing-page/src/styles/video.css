@@ -1,0 +1,16 @@
+.video-section {
+  padding: 80px 10%;
+  background: #0f3557;
+  text-align: center;
+}
+
+.video-box {
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+}
+
+.video-box img {
+  width: 100%;
+  border-radius: 20px;
+}

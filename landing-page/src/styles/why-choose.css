@@ -1,0 +1,50 @@
+.why-choose {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 10%;
+  gap: 60px;
+}
+
+.why-text {
+  max-width: 500px;
+}
+
+.why-text h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.why-text p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.why-text ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.why-text li {
+  font-weight: 500;
+}
+
+.why-image {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 16px;
+}
+
+@media (max-width: 900px) {
+  .why-choose {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .why-text ul {
+    grid-template-columns: 1fr;
+  }
+}

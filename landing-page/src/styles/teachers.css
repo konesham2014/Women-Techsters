@@ -1,0 +1,36 @@
+.teachers {
+  background: #fff6ed;
+  padding: 80px 10%;
+}
+
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.teacher-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.teacher-card img {
+  width: 100%;
+}
+
+.teacher-card h4 {
+  margin: 12px 0 4px;
+}
+
+.teacher-card span {
+  font-size: 14px;
+  color: #ff9f1c;
+}
+
+@media (max-width: 900px) {
+  .teacher-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

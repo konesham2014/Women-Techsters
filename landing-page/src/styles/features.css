@@ -1,0 +1,21 @@
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 8%;
+  background: #000;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  width: 260px;
+  text-align: center;
+  font-family: Sora;
+}
+
+.feature-card.active {
+  background: #00beae;
+  color: #fff;
+}

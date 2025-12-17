@@ -1,0 +1,32 @@
+.testimonials {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.testimonial-card {
+  border: 2px dashed #ffd8a8;
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.testimonial-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.testimonial-user {
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}
